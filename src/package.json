@@ -1,11 +1,12 @@
 {
   "name": "sw-outlook",
-  "title": "sw-outlook",
+  "title": "Outlook simple watcher",
   "id": "jid1-c1mlVIVMU0NXQQ",
-  "description": "a basic add-on",
-  "author": "",
-  "license": "MPL 2.0",
-  "version": "0.1",
+  "description": "A simple addon to monitor your outlook email.",
+  "icon": "data/outlook-64.png",
+  "author": "Pinetrax",
+  "license": "MIT",
+  "version": "1.0",
   "preferences": [{
         "name": "newtab",
         "title": "Toolbar Button behavior",
@@ -19,7 +20,7 @@
         },
 		{
             "value": "N",
-            "label": "Open in a new tab"
+            "label": "Always open in a new tab"
         }]
     },
 	{
