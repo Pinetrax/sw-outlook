@@ -1,0 +1,32 @@
+{
+  "name": "sw-outlook",
+  "title": "sw-outlook",
+  "id": "jid1-c1mlVIVMU0NXQQ",
+  "description": "a basic add-on",
+  "author": "",
+  "license": "MPL 2.0",
+  "version": "0.1",
+  "preferences": [{
+        "name": "newtab",
+        "title": "Toolbar Button behavior",
+        "description": "Specify what to do on button click.",
+        "type": "radio",
+        "value": "R",
+		"options": [
+        {
+            "value": "R",
+            "label": "Reuse existing tabs (also empty tabs)"
+        },
+		{
+            "value": "N",
+            "label": "Open in a new tab"
+        }]
+    },
+	{
+        "name": "checktime",
+        "title": "Set the time to check for new e-mail",
+        "description": "Defined in seconds. Please keep in mind, that lower numbers mean heavier work loads.",
+        "type": "integer",
+        "value": 60
+    }]
+}
