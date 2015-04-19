@@ -21,10 +21,11 @@ var outlookbutton = ActionButton({
     },
     onClick: newOutlook,
 	badge: "",
-	badgeColor: "#FF4444"
+	badgeColor: "#FF4444",
+	label: "Loading"
 });
 
-tmr.setTimeout(function(){ checkOutlook(); }, preferences.checktime * 1000);
+tmr.setTimeout(checkOutlook, 420); //preferences.checktime * 1000
 
 function checkOutlook() {
 	request({
