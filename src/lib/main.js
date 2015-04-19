@@ -1,12 +1,12 @@
 //Todo: option to count all unread mail
 
-var request		= require("sdk/request").Request;
+var request				= require("sdk/request").Request;
 var tabs				= require("sdk/tabs");
 var tmr 				= require('sdk/timers');
 var self 				= require("sdk/self");
-var preferences	= require("sdk/simple-prefs").prefs;
-var notifications	= require("sdk/notifications");
-var { ActionButton } = require("sdk/ui/button/action");
+var preferences			= require("sdk/simple-prefs").prefs;
+var notifications		= require("sdk/notifications");
+var { ActionButton } 	= require("sdk/ui/button/action");
 
 // Global variables
 var oldcount = 0;
@@ -39,7 +39,7 @@ function checkOutlook() {
 				outlookbutton.label = "Not logged in";
 				outlookbutton.badge = "!";
 			} else {
-				var count = /title="\w+?&#\d+?;(\d+?)"/.exec(response.text);
+				var count = /containerListRoot.+?title="\w+?[&#\d;]*?(\d*?)"/.exec(response.text);
 				
 				if(count !== null && count[1] !== undefined) { //fail test
 					//count > 999? -> 999+
