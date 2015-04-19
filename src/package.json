@@ -6,7 +6,7 @@
   "icon": "data/outlook-64.png",
   "author": "Pinetrax",
   "license": "MIT",
-  "version": "1.0",
+  "version": "1.0.1",
   "preferences": [{
         "name": "newtab",
         "title": "Toolbar Button behavior",
