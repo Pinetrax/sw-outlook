@@ -1,11 +1,11 @@
 //Todo: option to count all unread mail
 
-var request = require("sdk/request").Request;
-var tabs = require("sdk/tabs");
-var tmr = require('sdk/timers');
-var self = require("sdk/self");
-var preferences = require("sdk/simple-prefs").prefs;
-var notifications = require("sdk/notifications");
+var request		= require("sdk/request").Request;
+var tabs				= require("sdk/tabs");
+var tmr 				= require('sdk/timers');
+var self 				= require("sdk/self");
+var preferences	= require("sdk/simple-prefs").prefs;
+var notifications	= require("sdk/notifications");
 var { ActionButton } = require("sdk/ui/button/action");
 
 // Global variables
@@ -35,7 +35,6 @@ function checkOutlook() {
 			//Test if logged in:
 			if(response.text.indexOf("Login_Core.js") > 0) { 
 				//not logged in
-				//ich bin mir nicht sicher ob dieser Test funktioniert :D
 				outlookbutton.label = "Not logged in";
 				outlookbutton.badge = "!";
 			} else {
@@ -51,7 +50,7 @@ function checkOutlook() {
 							count[1] = "";
 						} else {
 							notifications.notify({
-								title: count[1] + " new E-Mail on Outlook",
+								title: count[1] + " new " + (count[1]==1 ? "E-Mail" : "E-Mails") + " on Outlook",
 								text: "Click here to open outlook",
 								iconURL: self.data.url("outlook-64.png"),
 								onClick: function () { newOutlook(); }
