@@ -42,14 +42,15 @@ function checkOutlook() {
 				
 				if(count !== null && count[1] !== undefined) { //fail test
 					//count > 999? -> 999+
-					if (!(parseInt(oldcount) >= parseInt(count[1]))) {
-						oldcount = count[1];
-						if (parseInt(count[1]) >= 1000) { count[1] = "999+"; }
-						if (parseInt(count[1]) == 0) {
-							count[1] = "";
+					count = parseInt(count[1]) || 0;
+					if (count > oldcount) {
+						oldcount = count;
+						if (count >= 1000) { count = "999+"; }
+						if (count == 0) {
+							count = "";
 						} else {
 							notifications.notify({
-								title: count[1] + " new " + (count[1]==1 ? "E-Mail" : "E-Mails") + " on Outlook",
+								title: count + " new " + (count==1 ? "E-Mail" : "E-Mails") + " on Outlook",
 								text: "Click here to open outlook",
 								iconURL: self.data.url("outlook-64.png"),
 								onClick: function () { newOutlook(); }
@@ -57,7 +58,7 @@ function checkOutlook() {
 						}
 					}
 					outlookbutton.label = "Visit outlook.com";
-					outlookbutton.badge = count[1];
+					outlookbutton.badge = count;
 				} else {
 					outlookbutton.label = "Check login";
 					outlookbutton.badge = "@!";
