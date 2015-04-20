@@ -31,8 +31,7 @@ function checkOutlook() {
 	request({
 		url: "https://dub110.mail.live.com/default.aspx",
 		content: { var: Date.now() },
-		onComplete: function(response) { 
-			console.log("Static");
+		onComplete: function(response) {
 			//Test if logged in:
 			if(response.text.indexOf("Login_Core.js") > 0) { 
 				//not logged in
@@ -43,7 +42,6 @@ function checkOutlook() {
 				
 				if(count !== null && count[1] !== undefined) { //fail test
 					//count > 999? -> 999+
-					// console.log(count);
 					if (!(parseInt(oldcount) >= parseInt(count[1]))) {
 						oldcount = count[1];
 						if (parseInt(count[1]) >= 1000) { count[1] = "999+"; }
@@ -61,15 +59,12 @@ function checkOutlook() {
 					outlookbutton.label = "Visit outlook.com";
 					outlookbutton.badge = count[1];
 				} else {
-					// console.log('Error!');
-					// console.log(response.text);
 					outlookbutton.label = "Check login";
 					outlookbutton.badge = "@!";
 				}
 			}
 		}
 	}).get();
-	console.log("check");
 	tmr.setTimeout(function(){ checkOutlook(); }, preferences.checktime * 1000);
 }
 
