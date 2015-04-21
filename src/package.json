@@ -6,7 +6,7 @@
   "icon": "data/outlook-64.png",
   "author": "Pinetrax",
   "license": "MIT",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "preferences": [{
         "name": "newtab",
         "title": "Toolbar Button behavior",
@@ -29,5 +29,11 @@
         "description": "Defined in seconds. Please keep in mind, that lower numbers mean heavier work loads.",
         "type": "integer",
         "value": 60
+    },
+	{
+        "name": "notify",
+        "title": "Enable desktop notification",
+        "type": "bool",
+        "value": true
     }]
 }

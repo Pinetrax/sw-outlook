@@ -44,11 +44,8 @@ function checkOutlook() {
 					//count > 999? -> 999+
 					count = parseInt(count[1]) || 0;
 					if (count > oldcount) {
-						oldcount = count;
 						if (count >= 1000) { count = "999+"; }
-						if (count == 0) {
-							count = "";
-						} else {
+						if (preferences.notify) {
 							notifications.notify({
 								title: count + " new " + (count==1 ? "E-Mail" : "E-Mails") + " on Outlook",
 								text: "Click here to open outlook",
@@ -57,8 +54,9 @@ function checkOutlook() {
 							});
 						}
 					}
-					outlookbutton.label = "Visit outlook.com";
-					outlookbutton.badge = count;
+					oldcount = count;
+					outlookbutton.label = "Visit outlook.com (" + count + ")";
+					outlookbutton.badge = (count==0 ? "" : count);
 				} else {
 					outlookbutton.label = "Check login";
 					outlookbutton.badge = "@!";
