@@ -56,7 +56,7 @@ function checkOutlook() {
 					}
 					oldcount = count;
 					outlookbutton.label = "Visit outlook.com (" + count + ")";
-					outlookbutton.badge = (count==0 ? "" : count);
+					outlookbutton.badge = count==0 ? "" : count;
 				} else {
 					outlookbutton.label = "Check login";
 					outlookbutton.badge = "@!";
