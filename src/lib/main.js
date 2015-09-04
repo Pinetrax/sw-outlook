@@ -58,8 +58,13 @@ function checkOutlook() {
 					outlookbutton.label = "Visit outlook.com (" + count + ")";
 					outlookbutton.badge = count==0 ? "" : count;
 				} else {
-					outlookbutton.label = "Check login";
-					outlookbutton.badge = "@!";
+					if(response.text.trim() == '') {
+						outlookbutton.label = "something went wrong, we'll try again soon";
+						outlookbutton.badge = "...";
+					} else {
+						outlookbutton.label = "Check login";
+						outlookbutton.badge = "@!";
+					}	
 				}
 			}
 		}
